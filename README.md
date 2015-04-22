@@ -39,7 +39,7 @@ Add following codes to your AppDelegate.h file.
 Add following codes to your didFinishLaunchingWithOptions method to start Boni Notify. You should use your app's App Key and App Secret.
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.boniNotifyManager = [[BoniNotifyManager alloc] initWithAppKey:@"6FMJ3TRQ8IGZEWUAI86O53M3RY3X1SFU" withAppSecret:@"PQCRJP78DV7R3FKXXU72ACSGULYJBLS3"];
+    self.boniNotifyManager = [[BoniNotifyManager alloc] initWithAppKey:@"APP_KEY" withAppSecret:@"APP_SECRET"];
     self.boniNotifyManager.showOfferWhileAppActive = YES;
     [self.boniNotifyManager startNotify];
     return YES;
