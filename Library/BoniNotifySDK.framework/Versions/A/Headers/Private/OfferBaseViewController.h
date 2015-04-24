@@ -10,7 +10,7 @@
 #import "BNOffer.h"
 #import "CCMPlayNDropView.h"
 #import "UIViewController+MaryPopin.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+BNWebCache.h"
 #import "BNHTTPRequest.h"
 
 #define MARGIN 10

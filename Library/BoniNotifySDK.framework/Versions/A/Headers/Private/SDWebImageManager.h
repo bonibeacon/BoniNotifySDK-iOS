@@ -6,10 +6,10 @@
  * file that was distributed with this source code.
  */
 
-#import "SDWebImageCompat.h"
+#import "BNSDWebImageCompat.h"
 #import "SDWebImageOperation.h"
-#import "SDWebImageDownloader.h"
-#import "SDImageCache.h"
+#import "BNSDWebImageDownloader.h"
+#import "BNSDImageCache.h"
 
 typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     /**
@@ -84,9 +84,9 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     SDWebImageTransformAnimatedImage = 1 << 10,
 };
 
-typedef void(^SDWebImageCompletionBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL);
+typedef void(^SDWebImageCompletionBlock)(UIImage *image, NSError *error, BNSDImageCacheType cacheType, NSURL *imageURL);
 
-typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL);
+typedef void(^SDWebImageCompletionWithFinishedBlock)(UIImage *image, NSError *error, BNSDImageCacheType cacheType, BOOL finished, NSURL *imageURL);
 
 typedef NSString *(^SDWebImageCacheKeyFilterBlock)(NSURL *url);
 
@@ -123,7 +123,7 @@ typedef NSString *(^SDWebImageCacheKeyFilterBlock)(NSURL *url);
 
 /**
  * The SDWebImageManager is the class behind the UIImageView+WebCache category and likes.
- * It ties the asynchronous downloader (SDWebImageDownloader) with the image cache store (SDImageCache).
+ * It ties the asynchronous downloader (BNSDWebImageDownloader) with the image cache store (BNSDImageCache).
  * You can use this class directly to benefit from web image downloading with caching in another context than
  * a UIView.
  *
@@ -135,7 +135,7 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 [manager downloadWithURL:imageURL
                  options:0
                 progress:nil
-               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+               completed:^(UIImage *image, NSError *error, BNSDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                    if (image) {
                        // do something with image
                    }
@@ -147,8 +147,8 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 
 @property (weak, nonatomic) id <SDWebImageManagerDelegate> delegate;
 
-@property (strong, nonatomic, readonly) SDImageCache *imageCache;
-@property (strong, nonatomic, readonly) SDWebImageDownloader *imageDownloader;
+@property (strong, nonatomic, readonly) BNSDImageCache *imageCache;
+@property (strong, nonatomic, readonly) BNSDWebImageDownloader *imageDownloader;
 
 /**
  * The cache filter is a block used each time SDWebImageManager need to convert an URL into a cache key. This can
@@ -188,18 +188,18 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
  *   This block has no return value and takes the requested UIImage as first parameter.
  *   In case of error the image parameter is nil and the second parameter may contain an NSError.
  *
- *   The third parameter is an `SDImageCacheType` enum indicating if the image was retrived from the local cache
+ *   The third parameter is an `BNSDImageCacheType` enum indicating if the image was retrived from the local cache
  *   or from the memory cache or from the network.
  *
  *   The last parameter is set to NO when the SDWebImageProgressiveDownload option is used and the image is 
  *   downloading. This block is thus called repetidly with a partial image. When image is fully downloaded, the
  *   block is called a last time with the full image and the last parameter set to YES.
  *
- * @return Returns an NSObject conforming to SDWebImageOperation. Should be an instance of SDWebImageDownloaderOperation
+ * @return Returns an NSObject conforming to SDWebImageOperation. Should be an instance of BNSDWebImageDownloaderOperation
  */
 - (id <SDWebImageOperation>)downloadImageWithURL:(NSURL *)url
                                          options:(SDWebImageOptions)options
-                                        progress:(SDWebImageDownloaderProgressBlock)progressBlock
+                                        progress:(BNSDWebImageDownloaderProgressBlock)progressBlock
                                        completed:(SDWebImageCompletionWithFinishedBlock)completedBlock;
 
 /**
@@ -273,8 +273,8 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 
 #pragma mark - Deprecated
 
-typedef void(^SDWebImageCompletedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType) __deprecated_msg("Block type deprecated. Use `SDWebImageCompletionBlock`");
-typedef void(^SDWebImageCompletedWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) __deprecated_msg("Block type deprecated. Use `SDWebImageCompletionWithFinishedBlock`");
+typedef void(^SDWebImageCompletedBlock)(UIImage *image, NSError *error, BNSDImageCacheType cacheType) __deprecated_msg("Block type deprecated. Use `SDWebImageCompletionBlock`");
+typedef void(^SDWebImageCompletedWithFinishedBlock)(UIImage *image, NSError *error, BNSDImageCacheType cacheType, BOOL finished) __deprecated_msg("Block type deprecated. Use `SDWebImageCompletionWithFinishedBlock`");
 
 
 @interface SDWebImageManager (Deprecated)
@@ -286,7 +286,7 @@ typedef void(^SDWebImageCompletedWithFinishedBlock)(UIImage *image, NSError *err
  */
 - (id <SDWebImageOperation>)downloadWithURL:(NSURL *)url
                                     options:(SDWebImageOptions)options
-                                   progress:(SDWebImageDownloaderProgressBlock)progressBlock
+                                   progress:(BNSDWebImageDownloaderProgressBlock)progressBlock
                                   completed:(SDWebImageCompletedWithFinishedBlock)completedBlock __deprecated_msg("Method deprecated. Use `downloadImageWithURL:options:progress:completed:`");
 
 @end

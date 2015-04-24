@@ -6,7 +6,7 @@
  * file that was distributed with this source code.
  */
 
-#import "SDWebImageCompat.h"
+#import "BNSDWebImageCompat.h"
 #import "SDWebImageManager.h"
 
 /**
