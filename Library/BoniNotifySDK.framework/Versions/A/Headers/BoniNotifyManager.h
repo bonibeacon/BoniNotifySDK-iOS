@@ -27,4 +27,6 @@
 
 - (void)didReceiveLocalNotification:(UILocalNotification *)notification;
 
+- (void)didFinishLaunchingWithLocalNotification:(UILocalNotification *)notification;
+
 @end

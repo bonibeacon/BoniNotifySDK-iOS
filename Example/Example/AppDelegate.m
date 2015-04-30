@@ -20,6 +20,11 @@
     self.boniNotifyManager = [[BoniNotifyManager alloc] initWithAppKey:@"BONI_APP_KEY" withAppSecret:@"BONI_APP_SECRET"];
     self.boniNotifyManager.showOfferWhileAppActive = YES;
     [self.boniNotifyManager startNotify];
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        [self.boniNotifyManager didFinishLaunchingWithLocalNotification:notification];
+    }
 
     return YES;
 }
