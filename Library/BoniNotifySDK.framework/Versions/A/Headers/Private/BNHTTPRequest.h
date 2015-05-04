@@ -18,6 +18,7 @@
 #define WS_URL_RULES                BASE_URL @"app/rules"
 #define WS_URL_LOCALNOTILOG         BASE_URL @"offer/postdistributionlog"
 #define WS_URL_OFFERDETAIL          BASE_URL @"app/getofferdata"
+#define WS_URL_OFFERDETAILTEST      BASE_URL @"app/getofferdatatest"
 #define WS_URL_MAILCOUPON           BASE_URL @"mailcouponcode"
 #define WS_URL_VISITED              BASE_URL @"app/getvisitedplaceoffer"
 

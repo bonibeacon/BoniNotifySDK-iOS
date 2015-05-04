@@ -19,6 +19,11 @@
  */
 @property (nonatomic, assign) BOOL showOfferWhileAppActive;
 
+/*
+ default value : NO
+ */
+@property (nonatomic, assign) BOOL useTestWebServices;
+
 - (id)initWithAppKey:(NSString*)appkey withAppSecret:(NSString*)appsecret;
 
 - (void)startNotify;
