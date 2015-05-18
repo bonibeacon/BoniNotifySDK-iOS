@@ -55,4 +55,8 @@
 
 + (void)setLastRuleFetchDate:(NSDate*)value;
 
++ (BOOL)isAlwaysLocation;
+
++ (void)setAlwaysLocation:(BOOL)value;
+
 @end

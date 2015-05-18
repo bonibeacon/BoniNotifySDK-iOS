@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *labelOfferDisclaimer;
 @property (weak, nonatomic) IBOutlet UILabel *labelCoupon;
+@property (weak, nonatomic) IBOutlet UIButton *btnEmail;
 
 @end
