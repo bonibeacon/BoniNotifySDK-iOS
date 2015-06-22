@@ -21,6 +21,7 @@ enum OfferType
 @property (nonatomic, assign) int offerid;
 @property (nonatomic, assign) int type;
 @property (nonatomic, assign) int ruleid;
+@property (nonatomic, assign) int venueid;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *imgurl;
 @property (nonatomic, strong) NSString *desc;

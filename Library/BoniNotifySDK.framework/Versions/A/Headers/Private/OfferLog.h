@@ -23,6 +23,7 @@ enum OfferLogType
 @property (nonatomic, retain) NSDate * datetime;
 @property (nonatomic, retain) NSNumber * offerid;
 @property (nonatomic, retain) NSNumber * ruleid;
+@property (nonatomic, retain) NSNumber * venueid;
 @property (nonatomic, retain) NSNumber * type;
 
 @end

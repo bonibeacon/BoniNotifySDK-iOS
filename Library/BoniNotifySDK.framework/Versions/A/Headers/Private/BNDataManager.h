@@ -23,7 +23,7 @@
 
 + (void)deleteCheckpointLogs:(NSArray*)array;
 
-+ (void)createOfferLogWithOfferId:(NSNumber *)offerid withRuleId:(NSNumber *)ruleid withType:(enum OfferLogType)type withCreatedDate:(NSDate *)datetime;
++ (void)createOfferLogWithOfferId:(NSNumber *)offerid withRuleId:(NSNumber *)ruleid withVenueId:(NSNumber *)venueid withType:(enum OfferLogType)type withCreatedDate:(NSDate *)datetime;
 
 + (NSArray *)getOfferLogsWithLimit:(NSInteger)limit;
 

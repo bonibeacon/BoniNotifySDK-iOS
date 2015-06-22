@@ -14,6 +14,5 @@
 
 - (void)nearestBeacon:(CLBeacon *)beacon inRegion:(CLBeaconRegion *)region;
 
-- (void)sendOfferLogWithOfferId:(int)offerid withRuleId:(int)ruleid withType:(enum OfferLogType)type;
-
+- (void)sendOfferLogWithOfferId:(int)offerid withRuleId:(int)ruleid withVenueId:(int)venueid withType:(enum OfferLogType)type;
 @end
