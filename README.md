@@ -42,6 +42,11 @@ Add following codes to your didFinishLaunchingWithOptions method to start Boni N
     self.boniNotifyManager = [[BoniNotifyManager alloc] initWithAppKey:@"APP_KEY" withAppSecret:@"APP_SECRET"];
     self.boniNotifyManager.showOfferWhileAppActive = YES;
     [self.boniNotifyManager startNotify];
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        [self.boniNotifyManager didFinishLaunchingWithLocalNotification:notification];
+    }
     return YES;
 }
 ```
