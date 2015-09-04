@@ -23,7 +23,6 @@ Installation
 4. Go to your app’s info.plist and add the NSLocationAlwaysUsageDescription key with a message to be displayed in the prompt.
 
 5. Open your Project Settings and go to Capabilities tab, switch on Background Modes and add these:
-    * Location updates
     * Background fetch
 
 Usage
@@ -42,6 +41,11 @@ Add following codes to your didFinishLaunchingWithOptions method to start Boni N
     self.boniNotifyManager = [[BoniNotifyManager alloc] initWithAppKey:@"APP_KEY" withAppSecret:@"APP_SECRET"];
     self.boniNotifyManager.showOfferWhileAppActive = YES;
     [self.boniNotifyManager startNotify];
+    
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        [self.boniNotifyManager didFinishLaunchingWithLocalNotification:notification];
+    }
     return YES;
 }
 ```
